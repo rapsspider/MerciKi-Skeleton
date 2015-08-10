@@ -18,15 +18,16 @@
 
 ### Modèles
 Il faut créer deux classes. La première va représenter une table dans la base de données, par exemple une table _project_. 
-La seconde classe représentera une entité, c'est l'entité représenter dans MERISE (MCD).
+Elle contiendra les méthodes permettant de communiquer avec cette table (Requêtes SQL).
+La seconde classe représentera une entité, c'est l'entité représentée dans MERISE (MCD).
 
 Exemple :
     ProjectTablePDO extends DAO_PDO
     Project extends Model
     
-### Controller
+### Les contrôleurs
 
-Un controller peut contenir différentes pages du site. Il peut utiliser zéro, un ou plusieurs modèles.
+Un contrôleur peut contenir différentes pages du site. Il peut utiliser zéro, un ou plusieurs modèles.
 
 Exemple:
 
@@ -41,7 +42,7 @@ Exemple:
 	    ];
 	
 	    /**
-	     * Page principale du controller.
+	     * Page principale du contrôleur.
 	     * Liste les différentes news présentes dans
 	     * la base de données.
 	     */

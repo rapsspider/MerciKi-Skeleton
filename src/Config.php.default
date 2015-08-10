@@ -1,0 +1,21 @@
+<?php
+
+use MerciKI\Config;
+
+Config::$debug = true;
+
+Config::$databases = [
+    'default' => [
+        'host'     => 'localhost',
+        'database' => 'merciki',
+        'user'     => 'root',
+        'pass'     => ''
+    ]
+];
+
+Config::$encoding = 'utf8';
+
+Config::$arg_separateur = '=';
+
+
+?>

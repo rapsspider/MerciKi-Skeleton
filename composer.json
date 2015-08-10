@@ -1,0 +1,17 @@
+{
+    "name": "rapsspider/merci-ki-skeleton",
+    "description": "A small Framework MVC",
+    "type": "library",
+    "keywords": ["framework", "merci","mvc"],
+    "homepage": "https://github.com/rapsspider/merci-ki-skeleton",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.16",
+        "rapsspider/merci-ki": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "MerciKI\\App\\": "src"
+        }
+    }
+}

@@ -1,21 +1,24 @@
 # MERCIKI Framework
 
+@TOTRANSLATE
+
 ## Architecture
 
 - Libs : Contient le core du framework. Il est normalement commun à tous.
   - Body : Contient les classes représentant le core de l'application.
   - Database : Contient les classes représentant l'ORM de l'application.
 - Src : Contient les sources personnelles pour chaque application.
-  - Controllers : Contient vos différents controller.
-  - Views : Contient vos différentes views.
+  - Controllers : Contient vos différents contrôleurs.
+  - Views : Contient vos différentes vues.
   - Model : Contient vos différents modèles.
-  - Public : Racine du site. Contiendra les css, javascript et autres files devant êtres accessible directement.
-  - resources : Contiendra par exemple les assets pour compiler le style du style.
+  - Public : Racine du site. Contiendra les css, javascript et autres fichiers devant êtres accessible directement.
+  - resources : Contiendra par exemple les assets pour compiler le style du site (LESS / SASS).
 
 ## Creation de son application
 
 ### Modèles
-Il faut créer deux classes. La première va représenté une table dans la base de données, par exemple une table _project_. La seconde classe représentera une entité, c'est à dire une ligne dans cette table.
+Il faut créer deux classes. La première va représenter une table dans la base de données, par exemple une table _project_. 
+La seconde classe représentera une entité, c'est l'entité représenter dans MERISE (MCD).
 
 Exemple :
     ProjectTablePDO extends DAO_PDO
@@ -23,7 +26,7 @@ Exemple :
     
 ### Controller
 
-Un controller contient différentes page du site. Il devra communiquer avec différents modèles.
+Un controller peut contenir différentes pages du site. Il peut utiliser zéro, un ou plusieurs modèles.
 
 Exemple:
 
@@ -46,11 +49,11 @@ Exemple:
 		    $projects = $this->Projects->getList();
             $this->addVar('projects', $projects);
             
-            return view
+            return view('Default/index');
 	    }
     }
 
 	    
 ## Les vues
 
-Les vues sont décomposées en 
+@TODO

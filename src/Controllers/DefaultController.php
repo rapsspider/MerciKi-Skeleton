@@ -7,10 +7,7 @@ use \MerciKI\Body\Controller;
 class DefaultController extends Controller {
 
     public function index() {
-        return [
-            'result' => true, 
-            'titre' => 'bienvenue'
-        ];
+        return 'yo';
     }
 }
 

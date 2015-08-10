@@ -1,0 +1,1 @@
+<?= json_encode(['image' => $image, 'result' => $result]); ?>

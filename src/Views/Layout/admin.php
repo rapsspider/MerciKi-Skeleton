@@ -19,11 +19,11 @@
 			</div>
 		</nav>
 		<section>
-			<?= $contenu ?>
+			<?= $content ?>
 		</section>
 		<footer>
-		    <a href="/Admin/logout">Deconnexion ( <?= $admin['username'] ?> )</a><br />
-			JASON BOURLARD - BASTIEN VAUTIER
+		    <a href="/Admin/logout">Logout ( <?= $admin['username'] ?> )</a><br />
+			JASON BOURLARD
 		</footer>
 	</body>
 </html>

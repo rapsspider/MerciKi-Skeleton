@@ -10,12 +10,12 @@ namespace MerciKI\App\Models\DAO;
 
 use MerciKI\App\Models\Entites\Utilisateurs;
 use MerciKI\Database\DAO\PDO_DAO;
-use MerciKI\Interfaces\IUtilisateurTableau;
+use MerciKI\Interfaces\IUserTable;
 
 /**
  * Tableau des utilisateurs
  */
-class UtilisateursTablePDO extends PDO_DAO implements IUtilisateurTableau {
+class UtilisateursTablePDO extends PDO_DAO implements IUserTable {
 
 	/**
 	 * Nom de l'entité géré par le manager.
@@ -35,7 +35,7 @@ class UtilisateursTablePDO extends PDO_DAO implements IUtilisateurTableau {
 	 * @return Model L'utilisateur
 	 * @see IUtilisateurTableau::getUtilisateur
 	 */
-	public function getUtilisateur($login, $password) {
+	public function getUser($login, $password) {
 		$this->lastRequest = 'SELECT * FROM ' . $this->table . ' WHERE username=\'' . addslashes($login) . '\';';
 		$usernames = $this->_db->query($this->lastRequest, \PDO::FETCH_ASSOC);
 

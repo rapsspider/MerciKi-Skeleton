@@ -1,12 +1,11 @@
 <?php
 /**
  * @author Jason BOURLARD<jason.bourlard@gmail.com>,
- *         Bastien VAUTIER
  */
 
 namespace MerciKI\App\Controllers;
 
-use MerciKI\Exception\PageNonExistante;
+use MerciKI\Exception\PageNotExist;
 use MerciKI\Exception\NonAdminUtilisateur;
 
 class NewsController extends AppController {
@@ -18,21 +17,21 @@ class NewsController extends AppController {
 	];
 	
 	public function index() {
-		$news = $this->News->getListe();
+		$news = $this->News->getList();
         $this->addVar('news', $news);
         
         return $this->view('News\index');
 	}
 
 	public function vue() {
-		if(!isset($this->requete->params['id'])) {
-			throw new PageNonExistante('La page demandée n\'existe pas');
+		if(!isset($this->request->params['id'])) {
+			throw new PageNotExist('La page demandée n\'existe pas');
 		}
 
 		try {
-		    $new = $this->News->get($this->requete->params['id']);
+		    $new = $this->News->get($this->request->params['id']);
 		} catch(MerciKIException $e) {
-			throw new PageNonExistante('La page demandée n\'existe pas');
+			throw new PageNotExist('La page demandée n\'existe pas');
 		}
 
         $this->addVar('new', $new);
@@ -46,8 +45,8 @@ class NewsController extends AppController {
 	public function admin_ajout() {
 		$new = $this->News->nouvelEntite();
 
-		if($this->requete->donnees && isset($this->requete->donnees['new'])) {
-		    $new->set($this->requete->donnees['new']);
+		if($this->request->data && isset($this->request->data['new'])) {
+		    $new->set($this->request->data['new']);
 			$ajoute = $this->News->creer($new);
 
 			if($ajoute) {
@@ -58,20 +57,20 @@ class NewsController extends AppController {
 		$this->addVar('new', $new);
 	}
 
-	public function admin_modifier() {
-		if(!isset($this->requete->params['id'])) {
-			throw new PageNonExistante('La page demandée n\'existe pas');
+	public function admin_edit() {
+		if(!isset($this->request->params['id'])) {
+			throw new PageNotExist('La page demandée n\'existe pas');
 		}
 
 		try {
-		    $new = $this->News->get($this->requete->params['id']);
+		    $new = $this->News->get($this->request->params['id']);
 		} catch(MerciKIException $e) {
-			throw new PageNonExistante('La page demandée n\'existe pas');
+			throw new PageNotExist('La page demandée n\'existe pas');
 		}
 
-		if($this->requete->donnees && isset($this->requete->donnees['new'])) {
-			$new->set($this->requete->donnees['new']);
-			$modifie = $this->News->modifier($new);
+		if($this->request->data && isset($this->request->data['new'])) {
+			$new->set($this->request->data['new']);
+			$modifie = $this->News->edit($new);
 
 			if($modifie) {
 				return $this->redirect('/news/admin_index');
@@ -82,19 +81,21 @@ class NewsController extends AppController {
 	}
 
     /**
-     * Page permettant de supprimer une new
+     * Delete the new which have the id passed in request's parameter.
+     * @throw PageNotExist     Not entity found with the id.
+     * @throw MerciKiException Error during the delete.
      */
-	public function admin_supprimer() {
+	public function admin_delete() {
 		try {
-		    $new = $this->News->get($this->requete->params['id']);
+		    $new = $this->News->get($this->request->params['id']);
 		} catch(MerciKIException $e) {
-			throw new PageNonExistante('La page demandée n\'existe pas');
+			throw new EntityNotExist('Entity not exist.');
 		}
 
-		if($this->News->supprimer($new)) {
-
+		if($this->News->delete($new)) {
+            return $this->redirect('/news/admin_index');
 		}
-		return $this->redirect('/news/admin_index');
+		throw new MerciKiException('Impossible to delete this image. An error occured ...');
 	}
 
 }

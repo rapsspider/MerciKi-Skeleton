@@ -137,7 +137,7 @@ function Connexion() {
 
         $.ajax({
             'type' : 'POST',
-            'url'  : '/Admin/login',
+            'url'  : '/login',
             'dataType' : 'json',
             'data' : {
                 'username' : this.username,

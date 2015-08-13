@@ -2,9 +2,23 @@
 
 use MerciKI\Body\Router;
 
-Router::get('/', 'NewsController@index');
-Router::get('/projects', 'NewsController@index');
-Router::get('/requirements/{project_id}', 'NewsController@requirements');
+/** MAIN */
+Router::get ('/',       'NewsController@index');
+Router::get ('/admin',  'AdminController@index');
+Router::get ('/logout', 'AdminController@logout');
+Router::get ('/login',  'AdminController@login');
+Router::post('/login',  'AdminController@loginResult');
+
+/** NEWS */
+Router::get ('/news', 'NewsController@index');
+Router::get ('/news/index', 'NewsController@index');
+Router::get ('/news/index', 'NewsController@vue');
+Router::get ('/news/index', 'NewsController@admin_index');
+Router::get ('/admin/news/add',            'NewsController@admin_add');
+Router::post('/admin/news/add',            'NewsController@admin_save');
+Router::get ('/admin/news/{id}/edit',      'NewsController@admin_edit');
+Router::post('/admin/news/{id}/edit',      'NewsController@admin_update');
+Router::post('/admin/news/{id}/delete',    'NewsController@admin_delete');
 
 /**
  * Gestion des groupes

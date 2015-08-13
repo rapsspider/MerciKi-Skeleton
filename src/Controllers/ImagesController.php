@@ -1,7 +1,6 @@
 <?php
 /**
  * @author Jason BOURLARD<jason.bourlard@gmail.com>,
- *         Bastien VAUTIER
  */
 
 namespace MerciKI\Controleurs;
@@ -21,8 +20,8 @@ class ImagesController extends AppController {
 
     public function getListe() {
         $this->layout = 'ajax';
-        $this->reponse->type('json');
-        $this->ajoutVariable('images', [
+        $this->response->type('json');
+        $this->addVar('images', [
             [
                 'titre' => 'DRACO ? FEU ! piou piou',
                 'lien'  => 'http://127.0.0.1/img/drakofeu.jpg'
@@ -44,8 +43,8 @@ class ImagesController extends AppController {
 
     public function getListexml() {
         $this->layout = 'ajax';
-        $this->reponse->type('xml');
-        $this->ajoutVariable('images', [
+        $this->response->type('xml');
+        $this->addVar('images', [
             [
                 'titre' => 'DRACO ? FEU ! piou piou',
                 'lien'  => 'http://127.0.0.1/img/drakofeu.jpg'
@@ -67,7 +66,7 @@ class ImagesController extends AppController {
 
     public function admin_index() {
         $images = $this->Images->getListe();
-        $this->ajoutVariable('images', $images);
+        $this->addVar('images', $images);
     }
 
     public function admin_ajout() {
@@ -81,44 +80,44 @@ class ImagesController extends AppController {
         $photos->set($image['image']);
         $ajoute = $this->Images->creer($image);
 
-        $this->ajoutVariable('image', $image);
-        $this->ajoutVariable('result', $ajoute);
+        $this->addVar('image', $image);
+        $this->addVar('result', $ajoute);
     }
 
-    public function admin_modifier() {
-        if(!isset($this->requete->params['id'])) {
+    public function admin_edit() {
+        if(!isset($this->request->params['id'])) {
             throw new PageNotExist('La page demandée n\'existe pas');
         }
 
         try {
-            $image = $this->Images->get($this->requete->params['id']);
+            $image = $this->Images->get($this->request->params['id']);
         } catch(MerciKiException $e) {
             throw new PageNonExistante('La page demandée n\'existe pas');
         }
 
-        if($this->requete->donnees && isset($this->requete->donnees['image'])) {
-            $image->set($this->requete->donnees['image']);
-            $modifie = $this->Images->modifier($image);
+        if($this->request->data && isset($this->request->data['image'])) {
+            $image->set($this->request->data['image']);
+            $modifie = $this->Images->edit($image);
 
             if($modifie) {
                 return $this->redirect('/images/admin_index');
             } // TODO redirection
         }
 
-        $this->ajoutVariable('image', $image);
+        $this->addVar('image', $image);
     }
 
     /**
-     * Page permettant de supprimer une image
+     * Page permettant de delete une image
      */
-    public function admin_supprimer() {
+    public function admin_delete() {
         try {
-            $image = $this->Images->get($this->requete->params['id']);
+            $image = $this->Images->get($this->request->params['id']);
         } catch(MerciKIException $e) {
             throw new PageNotExist('La page demandée n\'existe pas');
         }
 
-        if($this->Images->supprimer($image)) {
+        if($this->Images->delete($image)) {
 
         }
         return $this->redirect('/images/admin_index');

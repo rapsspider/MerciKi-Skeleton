@@ -22,7 +22,7 @@
 			<?= $content ?>
 		</section>
 		<footer>
-		    <a href="/Admin">Panel Admin</a><br />
+		    <a href="/admin">Panel Admin</a><br />
 			JASON BOURLARD
 		</footer>
 	</body>

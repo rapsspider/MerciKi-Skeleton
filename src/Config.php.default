@@ -13,9 +13,13 @@ Config::$databases = [
     ]
 ];
 
+Config::$auth_model = [
+    //'model' => 'User',
+    //'DAO'   => 'PDO'
+];
+
 Config::$encoding = 'utf8';
 
 Config::$arg_separateur = '=';
-
 
 ?>

@@ -18,6 +18,5 @@ if(MerciKI\Config::$debug) {
 	error_reporting(0);
 }
 
-        print_r($_POST);
 $application = new MerciKI\Application();
 $application->execute();

@@ -20,7 +20,7 @@ class AdminController extends AppController {
         
         $this->layout = 'admin';
 
-    	if($this->action != 'login') {
+    	if($this->action != 'login' && $this->action != 'loginResult' ) {
 	        if($this->auth == null || !$this->auth->isConnected()) {
 	        	$this->redirect('/login');
 	        }
@@ -59,9 +59,8 @@ class AdminController extends AppController {
             $this->request->data['username'],
             $this->request->data['password']
         );
-
-        $this->addVar('estConnecte', $isConnected);
-        return $this->view('Admin/login_json');
+        
+        return ['result' => $isConnected];
     }
 
     /**

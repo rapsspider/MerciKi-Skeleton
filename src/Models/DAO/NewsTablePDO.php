@@ -8,7 +8,7 @@
 
 namespace MerciKI\App\Models\DAO;
 
-use MerciKI\App\Models\Entites\News;
+use MerciKI\App\Models\Entities\News;
 use MerciKI\Database\DAO\PDO_DAO;
 
 /**
@@ -19,7 +19,7 @@ class NewsTablePDO extends PDO_DAO {
 	/**
 	 * Nom de l'entité géré par le manager.
 	 */
-	protected $entite = "News";
+	protected $entity = "News";
 
 	/**
 	 * Contient le nom de la table à utiliser.

@@ -8,7 +8,7 @@
 
 namespace MerciKI\App\Models\DAO;
 
-use MerciKI\App\Models\Entites\Images;
+use MerciKI\App\Models\Entities\Images;
 use MerciKI\Database\DAO\PDO_DAO;
 
 /**
@@ -19,7 +19,7 @@ class ImagesTablePDO extends PDO_DAO {
 	/**
 	 * Nom de l'entité géré par le manager.
 	 */
-	protected $entite = "Images";
+	protected $entity = "Images";
 
 	/**
 	 * Contient le nom de la table à utiliser.

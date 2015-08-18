@@ -38,23 +38,34 @@ class NewsController extends AppController {
 	}
 
 	public function admin_index() {
-		$news = $this->News->getListe();
+		$news = $this->News->getList();
         $this->addVar('news', $news);
+        
+        return $this->view('News\admin_index');
 	}
 
-	public function admin_ajout() {
-		$new = $this->News->nouvelEntite();
+	public function admin_add() {
+		$new = $this->News->newEntity();
+
+		$this->addVar('new', $new);
+        
+        return $this->view('News\admin_add');
+	}
+
+	public function admin_save() {
+		$new = $this->News->newEntity();
 
 		if($this->request->data && isset($this->request->data['new'])) {
 		    $new->set($this->request->data['new']);
-			$ajoute = $this->News->creer($new);
+			$ajoute = $this->News->create($new);
 
 			if($ajoute) {
-				return $this->redirect('/news/admin_index');
+				return $this->redirect('/admin/news/index');
 			} // TODO redirection
 		}
 
 		$this->addVar('new', $new);
+        return $this->view('News\admin_add');
 	}
 
 	public function admin_edit() {
@@ -73,7 +84,7 @@ class NewsController extends AppController {
 			$modifie = $this->News->edit($new);
 
 			if($modifie) {
-				return $this->redirect('/news/admin_index');
+				return $this->redirect('/admin/news/index');
 			} // TODO redirection
 		}
 
@@ -93,7 +104,7 @@ class NewsController extends AppController {
 		}
 
 		if($this->News->delete($new)) {
-            return $this->redirect('/news/admin_index');
+            return $this->redirect('/admin/news/index');
 		}
 		throw new MerciKiException('Impossible to delete this image. An error occured ...');
 	}

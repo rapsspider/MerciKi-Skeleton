@@ -26,8 +26,6 @@ class AppController extends Controller {
 			} // else
             $this->layout = 'admin';
         }
-
-		$this->addVar('user', ['admin' => $this->auth != null && $this->auth->isConnected()]);
 	}
 }
 

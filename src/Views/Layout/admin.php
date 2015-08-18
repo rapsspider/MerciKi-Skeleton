@@ -14,15 +14,15 @@
 		<nav class="menu center">
 		    <div>
 				<a href="/"><i class="icon-home"></i>Accueil</a>
-				<a href="/News/admin_index"><i class="icon-doc-text"></i>News</a>
-				<a href="/Images/admin_index"><i class="icon-picture"></i>Images</a>
+				<a href="/admin/news/index"><i class="icon-doc-text"></i>News</a>
+				<a href="/admin/images/index"><i class="icon-picture"></i>Images</a>
 			</div>
 		</nav>
 		<section>
 			<?= $content ?>
 		</section>
 		<footer>
-		    <a href="/Admin/logout">Logout ( <?= $admin['username'] ?> )</a><br />
+		    <a href="/logout">Logout ( <?= $user['username'] ?> )</a><br />
 			JASON BOURLARD
 		</footer>
 	</body>

@@ -23,8 +23,8 @@
 				<td><?= htmlentities($new->auteur) ?></td>
 				<td><?= htmlentities($new->date) ?></td>
 				<td class="bouton">
-					<a href="/news/admin_modifier/<?= $new->id ?>">Modifier</a>
-					<a href="/news/admin_supprimer/<?= $new->id ?>">Supprimer</a>
+					<a href="/admin/news/<?= $new->id ?>/edit">Modifier</a>
+					<a href="/admin/news/<?= $new->id ?>/delete">Supprimer</a>
 				</td>
 			</tr>
 	<?php
@@ -34,6 +34,6 @@
 	    </tbody>
 	</table>
 	<div class="bouton right">
-    	<a href="/news/admin_ajout">Ajouter une new</a>
+    	<a href="/admin/news/add">Ajouter une new</a>
 	</div>
 </div>

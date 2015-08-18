@@ -1,7 +1,7 @@
 <div class="news">
-    <h1>Ajout d'une new</h1>
+    <h1>Modification d'une new</h1>
 
-    <form method="POST" action="/news/admin_ajout">
+    <form method="POST" action="/admin/news/<?= $new->id ?>/edit">
         <div>
             <label>Titre</label>
             <input type="text" name="new[titre]" value="<?= $new->titre ?>" />
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="bouton right">
-            <button class="submit" onClick="submit()"><i class="icon-plus"></i>Ajouter</button>
+            <button class="submit" onClick="submit()"><i class="icon-edit"></i>Modifier</button>
         </div>
     </form>
 

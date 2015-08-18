@@ -6,7 +6,7 @@
  *         Bastien GIBRAT<bastien.gibrat@gmail.com>
  */
 
-namespace MerciKI\App\Models\Entites;
+namespace MerciKI\App\Models\Entities;
 
 use MerciKI\Body\Model;
 
@@ -24,7 +24,7 @@ class News extends Model {
      * Permet de faire la correspondance entre un attribut et son nom de colonne
      * dans la base de données.
      */
-    public $attributs = [
+    public $attributes = [
         'id' => [
             'type' => 's',
             'column' => 'id'

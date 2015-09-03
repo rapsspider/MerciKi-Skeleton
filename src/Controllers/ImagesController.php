@@ -3,7 +3,7 @@
  * @author Jason BOURLARD<jason.bourlard@gmail.com>,
  */
 
-namespace MerciKI\Controleurs;
+namespace MerciKI\App\Controllers;
 
 use MerciKI\Body\Controleur;
 use MerciKI\Body\Uploader;
@@ -15,13 +15,11 @@ class ImagesController extends AppController {
     ];
     
     public function index() {
-
+        return $this->view('Images\index');
     }
 
     public function getListe() {
-        $this->layout = 'ajax';
-        $this->response->type('json');
-        $this->addVar('images', [
+        return [
             [
                 'titre' => 'DRACO ? FEU ! piou piou',
                 'lien'  => 'http://127.0.0.1/img/drakofeu.jpg'
@@ -38,12 +36,13 @@ class ImagesController extends AppController {
                 'titre' => 'Salle à mêches !!!!',
                 'lien'  => 'http://127.0.0.1/img/salameche.png'
             ]
-        ]);
+        ];
     }
 
     public function getListexml() {
         $this->layout = 'ajax';
         $this->response->type('xml');
+        
         $this->addVar('images', [
             [
                 'titre' => 'DRACO ? FEU ! piou piou',
@@ -62,11 +61,13 @@ class ImagesController extends AppController {
                 'lien'  => 'http://127.0.0.1/img/salameche.png'
             ]
         ]);
+        return $this->view('Images\getListexml');
     }
 
     public function admin_index() {
         $images = $this->Images->getListe();
         $this->addVar('images', $images);
+        return $this->view('Images\admin_index');
     }
 
     public function admin_ajout() {
@@ -82,6 +83,7 @@ class ImagesController extends AppController {
 
         $this->addVar('image', $image);
         $this->addVar('result', $ajoute);
+        return $this->view('Images\admin_ajout');
     }
 
     public function admin_edit() {
@@ -105,6 +107,7 @@ class ImagesController extends AppController {
         }
 
         $this->addVar('image', $image);
+        return $this->view('Images\admin_ajout');
     }
 
     /**

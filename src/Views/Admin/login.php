@@ -38,7 +38,7 @@
                         </div>
                         <div class="deuxboutons">
                             <div class="bouton"><a href="#" class="back">Back</a></div>
-                            <div class="submit bouton"><a href="#" onClick="return con.connexion();">Login</a></div>
+                            <div class="submit bouton"><button type="submit" name="connexion">Login</button></div>
                         </div>
                         <div class="clear"></div>
                         <div class="error">
@@ -180,6 +180,18 @@ $('.bouton a.back').on('click', function() {
 $('#view_login').on('click', function() {
     $('#cube').addClass('flipped');
     $('form input[name=username]').focus();
+});
+    
+$('input[name=username], input[name=password]').on('keydown', function(e) {
+    if ( e.which == 13 ) {
+        $('form').submit();
+    }
+});
+    
+$('form').submit(function(e) {
+    e.preventDefault();
+    con.connexion();
+    return false;
 });
 
 //$('#cube').addClass('flipped').addClass('down');

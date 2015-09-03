@@ -98,8 +98,6 @@
                 image.title = images[i].childNodes[0].textContent;
                 ImagesManager.images.push(image);
             }
-
-            console.log(xml);
         }
     }
 
@@ -130,13 +128,13 @@
             // Type de la réponse AJAX
             ImagesManager.type = 'xml';
             // URL où sera envoyer la requête AJAX
-            ImagesManager.url =  '/images/getListexml';
+            ImagesManager.url =  '/images/liste.xml';
         },
         initJSON : function() {
             // Type de la réponse AJAX
             ImagesManager.type = 'json'; 
             // URL où sera envoyer la requête AJAX
-            ImagesManager.url = '/images/getListe';
+            ImagesManager.url = '/images/liste.json';
         },
 
         /**
@@ -228,7 +226,7 @@
     }
 
     // Utilisation du XML
-    ImagesViewer.init(true ? 'xml' : 'json');
+    ImagesViewer.init(false ? 'xml' : 'json');
 
     // Pointeur sur le bloc où sera afficher les images.
     ImagesViewer.bloc = document.getElementById('image_show');

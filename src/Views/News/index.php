@@ -14,7 +14,7 @@ if($news):
 		echo '<span class="date"><b>Date</b>' . htmlentities($new->date) . '</span><br />';
 		echo '<span class="auteur"><b>Auteur</b>' . htmlentities($new->auteur) . '</span><br /><br />';
 		echo '<div class="content">' . nl2br($new->apercu()) . '</div>';
-		echo '<div class="right bouton"><a href="/news/vue/' . $new->id . '">Voir plus en détails</a></div>';
+		echo '<div class="right bouton"><a href="/news/' . $new->id . '">Voir plus en détails</a></div>';
 		echo '</div>';
 	endforeach;
 endif;

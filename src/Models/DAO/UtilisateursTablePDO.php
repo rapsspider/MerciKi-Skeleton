@@ -17,45 +17,45 @@ use MerciKI\Interfaces\IUserTable;
  */
 class UtilisateursTablePDO extends PDO_DAO implements IUserTable {
 
-	/**
-	 * Nom de l'entité géré par le manager.
-	 */
-	protected $entity = "Utilisateurs";
+    /**
+     * Nom de l'entité géré par le manager.
+     */
+    protected $entity = "Utilisateurs";
 
-	/**
-	 * Contient le nom de la table à utiliser.
-	 */
-	protected $table = 'utilisateurs';
+    /**
+     * Contient le nom de la table à utiliser.
+     */
+    protected $table = 'utilisateurs';
 
-	/**
-	 * Tente de connecté un utilisateur
-	 *
-	 * @param String login Le login de l'utilisateur
-	 * @param String password Le password de l'utilisateur
-	 * @return Model L'utilisateur
-	 * @see IUtilisateurTableau::getUtilisateur
-	 */
-	public function getUser($login, $password) {
-		$this->lastRequest = 'SELECT * FROM ' . $this->table . ' WHERE username=:login__;';
+    /**
+     * Tente de connecté un utilisateur
+     *
+     * @param String login Le login de l'utilisateur
+     * @param String password Le password de l'utilisateur
+     * @return Model L'utilisateur
+     * @see IUtilisateurTableau::getUtilisateur
+     */
+    public function getUser($login, $password) {
+        $this->lastRequest = 'SELECT * FROM ' . $this->table . ' WHERE username=:login__;';
         
         $req = $this->_db->prepare($this->lastRequest);
-		$this->bindValue($req, ':login__', $login, self::getType('s'));
-		$req->execute();
+        $this->bindValue($req, ':login__', $login, self::getType('s'));
+        $req->execute();
         
-		$usernames = $req->fetchAll();
+        $usernames = $req->fetchAll();
 
         if(!$usernames) return false;
-		$user = false;
-		$i = 0;
-		while($i < count($usernames)) {
-			$user = $usernames[$i]['passe'] == $password ? $usernames[$i] : false;
-		    $i++;
-		}
+        $user = false;
+        $i = 0;
+        while($i < count($usernames)) {
+            $user = $usernames[$i]['passe'] == $password ? $usernames[$i] : false;
+            $i++;
+        }
 
-		if ($user && isset($user['passe'])) {
-			unset($user['passe']);
-		}
+        if ($user && isset($user['passe'])) {
+            unset($user['passe']);
+        }
 
-		return $user ? new Utilisateurs($user) : false;
-	}
+        return $user ? new Utilisateurs($user) : false;
+    }
 }

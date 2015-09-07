@@ -16,24 +16,24 @@ use MerciKI\Database\DAO\PDO_DAO;
  */
 class NewsTablePDO extends PDO_DAO {
 
-	/**
-	 * Nom de l'entité géré par le manager.
-	 */
-	protected $entity = "News";
+    /**
+     * Nom de l'entité géré par le manager.
+     */
+    protected $entity = "News";
 
-	/**
-	 * Contient le nom de la table à utiliser.
-	 */
-	protected $table = 'news';
+    /**
+     * Contient le nom de la table à utiliser.
+     */
+    protected $table = 'news';
 
-	/**
-	 * Return a list of news.
+    /**
+     * Return a list of news.
      * @param String order The order to use.
      * @return Array<News> A list of news.
-	 */
-	public function getList($order = 'id DESC') {
-		$this->lastRequest = 'SELECT * FROM ' . $this->table . ' ORDER BY ' . $order . ';';
-		$news = $this->_db->query($this->lastRequest, \PDO::FETCH_ASSOC);
+     */
+    public function getList($order = 'id DESC') {
+        $this->lastRequest = 'SELECT * FROM ' . $this->table . ' ORDER BY ' . $order . ';';
+        $news = $this->_db->query($this->lastRequest, \PDO::FETCH_ASSOC);
 
         if($news) {
             $news = $news->fetchAll();
@@ -44,5 +44,5 @@ class NewsTablePDO extends PDO_DAO {
         } // else
         
         return [];
-	}
+    }
 }

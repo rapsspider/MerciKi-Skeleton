@@ -36,25 +36,25 @@ Exemple:
     use MerciKI\App\Body\Controller;
 
     class DefaultController extends Controller {
-	
-	    public $models = [
-	        'Project' => 'PDO'
-	    ];
-	
-	    /**
-	     * Page principale du contrôleur.
-	     * Liste les différentes news présentes dans
-	     * la base de données.
-	     */
-	    public function index() {
-		    $projects = $this->Projects->getList();
+    
+        public $models = [
+            'Project' => 'PDO'
+        ];
+    
+        /**
+         * Page principale du contrôleur.
+         * Liste les différentes news présentes dans
+         * la base de données.
+         */
+        public function index() {
+            $projects = $this->Projects->getList();
             $this->addVar('projects', $projects);
             
             return view('Default/index');
-	    }
+        }
     }
 
-	    
+        
 ## Les vues
 
 @TODO

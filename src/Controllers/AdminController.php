@@ -16,15 +16,15 @@ class AdminController extends AppController {
      * to the login page.
      */
     public function beforeAction() {
-    	parent::beforeAction();
+        parent::beforeAction();
         
         $this->layout = 'admin';
 
-    	if($this->action != 'login' && $this->action != 'loginResult' ) {
-	        if($this->auth == null || !$this->auth->isConnected()) {
-	        	$this->redirect('/login');
-	        }
-    	}
+        if($this->action != 'login' && $this->action != 'loginResult' ) {
+            if($this->auth == null || !$this->auth->isConnected()) {
+                $this->redirect('/login');
+            }
+        }
     }
 
     /**

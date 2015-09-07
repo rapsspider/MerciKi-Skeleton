@@ -46,11 +46,11 @@ class News extends Model {
             'column' => 'auteur'
         ]
     ];
-	
-	public function apercu() {
+    
+    public function apercu() {
         if(strlen($this->contenu) > 600) return substr($this->contenu, 0, 600) . '...';
         return $this->contenu;
-	}
+    }
     
 }
 

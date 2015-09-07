@@ -1,11 +1,11 @@
 <?php
 if($groups):
-	foreach($groups as &$group):
-		echo '<div>';
+    foreach($groups as &$group):
+        echo '<div>';
         echo '<form action="/groupe/' . $group->id . '/compute" method="POST">';
         echo '<div class="row">';
         echo '    <div class="col-xs-1">';
-		echo '       <h1>' . $group->name . '</h1>';
+        echo '       <h1>' . $group->name . '</h1>';
         echo '    </div>';
         echo '    <div class="form-group col-xs-2">';
         echo '       <label for="'. $group->id .'start">Date debut</label>';
@@ -36,8 +36,8 @@ if($groups):
         echo '    </div>';
         echo '</div>';
         echo '</form>';
-		echo '</div>';
-	endforeach;
+        echo '</div>';
+    endforeach;
 endif;
 ?>
 <a href="/groupe/create">Créer un groupe</a>

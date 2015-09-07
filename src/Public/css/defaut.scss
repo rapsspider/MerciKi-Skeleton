@@ -26,7 +26,7 @@ $width_nav     : 100%;
 * {
     margin: 0px;
     padding: 0px;
-	box-sizing : border-box;
+    box-sizing : border-box;
 }
 
 html {
@@ -46,180 +46,180 @@ body {
 }
 
 header, section, nav, footer {
-	width: 1000px;
-	margin: 0 auto;
+    width: 1000px;
+    margin: 0 auto;
 }
 
 /* HEADER */
 
 header {
-	background-color: $color_1; 
-	color: #FFFFFF;
+    background-color: $color_1; 
+    color: #FFFFFF;
     width: $width_header;
-	height: 100px;
-	text-align: center;
-	h1 {
-	    margin: 0 auto;
-	    padding-top: 20px;
-	    height: 100%;
-		font-size: 3em;
-		width: $width_section;
-		background-image:url('/img/Poussifeu-head-bg.png');
-		background-repeat:no-repeat;
-		background-position:left bottom;
-	}
+    height: 100px;
+    text-align: center;
+    h1 {
+        margin: 0 auto;
+        padding-top: 20px;
+        height: 100%;
+        font-size: 3em;
+        width: $width_section;
+        background-image:url('/img/Poussifeu-head-bg.png');
+        background-repeat:no-repeat;
+        background-position:left bottom;
+    }
 }
 
 /* MENU & Boutons */
 
 nav.menu {
-	width: $width_nav;
-	font-size: 1em;
-	height: 30px;
+    width: $width_nav;
+    font-size: 1em;
+    height: 30px;
 
     background-color: $color_2;
 
-	a {
-	    background-color: transparent;
-	    padding: 5px 30px;
-		min-width: 200px;
-	}
+    a {
+        background-color: transparent;
+        padding: 5px 30px;
+        min-width: 200px;
+    }
 
-	a:hover {
-		color: #FFFFFF;
-	    background-color: $color_5;
-		background: $color_2_hover;
-	}
+    a:hover {
+        color: #FFFFFF;
+        background-color: $color_5;
+        background: $color_2_hover;
+    }
 }
 
 nav, span.bouton, div.bouton {
-	position: relative;
+    position: relative;
     width: 100%;
-	min-height: 32px;
+    min-height: 32px;
 
-	background-color: transparent;
+    background-color: transparent;
 
-	a {
-	    background-color: $color_5;
-		text-decoration: none;
-		color: #FFFFFF;
-		padding: 7px 10px;
-		min-width: 120px;
-		text-align: center;
-		font-weight: bold;
-		height: 100%;
-		display: block;
-		float: left;
-		margin-left: 1px;
-		margin-right: 1px;
-	}
+    a {
+        background-color: $color_5;
+        text-decoration: none;
+        color: #FFFFFF;
+        padding: 7px 10px;
+        min-width: 120px;
+        text-align: center;
+        font-weight: bold;
+        height: 100%;
+        display: block;
+        float: left;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
 
-	a:hover {
-		color: #FFFFFF;
-	    background-color: $color_5;
-		background: $color_5_hover;
-	}
+    a:hover {
+        color: #FFFFFF;
+        background-color: $color_5;
+        background: $color_5_hover;
+    }
 }
 
 nav.center div {
-	margin: 0 auto;
-	width:  $width_section;
-	height: 100%;
+    margin: 0 auto;
+    width:  $width_section;
+    height: 100%;
 }
 
 div.bouton {
-	min-width: 200px;
+    min-width: 200px;
 }
 
 /* SECTION */
 
 section {
     font-size: 0.80em;
-	background-color: $color_3;
+    background-color: $color_3;
     width: $width_section;
     padding: 20px 20px;
     text-align: left;
 
-	nav {
-	    width: auto;
-	    margin: 20px 0px;
-	    background: $color_2;
-	}
+    nav {
+        width: auto;
+        margin: 20px 0px;
+        background: $color_2;
+    }
 
-	h1 {
-	    color: $color_5;
-	    font-size: 2em;
-	    border-bottom: 2px solid $color_1;
-	}
+    h1 {
+        color: $color_5;
+        font-size: 2em;
+        border-bottom: 2px solid $color_1;
+    }
 
-	article, div {
-	    margin: 20px 0px;
-	    background-color: $color_4;
-	}
+    article, div {
+        margin: 20px 0px;
+        background-color: $color_4;
+    }
 
-	nav:first-child, article:first-child, div:first-child {
-	    margin-top: 0px;
-	}
+    nav:first-child, article:first-child, div:first-child {
+        margin-top: 0px;
+    }
 
-	nav:last-child, article:last-child, div:last-child {
-	    margin-bottom: 0px;
-	}
+    nav:last-child, article:last-child, div:last-child {
+        margin-bottom: 0px;
+    }
 
-	padding-bottom: 220px;
-	background-image:url('/img/salameche-bg.png');
-	background-repeat:no-repeat;
-	background-position:right bottom;
+    padding-bottom: 220px;
+    background-image:url('/img/salameche-bg.png');
+    background-repeat:no-repeat;
+    background-position:right bottom;
 }
 
 
 /* NEWS */
 
 .news {
-	padding: 25px;
+    padding: 25px;
 
-	h1 {
-		font-size: 1.8em;
-		padding: 5px 0px 5px 0px;
-		margin-bottom: 10px;
-	    border-bottom: 0px;
-	    border-bottom: 2px solid $color_4;
-	}
+    h1 {
+        font-size: 1.8em;
+        padding: 5px 0px 5px 0px;
+        margin-bottom: 10px;
+        border-bottom: 0px;
+        border-bottom: 2px solid $color_4;
+    }
 
-	span.date b, span.auteur b {
-		width: 80px;
-		display: block;
-		float: left;
-	}
+    span.date b, span.auteur b {
+        width: 80px;
+        display: block;
+        float: left;
+    }
 
-	div {
-	    padding: 0px;
-	    margin: 0px;
-	}
+    div {
+        padding: 0px;
+        margin: 0px;
+    }
 
-	.content {
-		margin-bottom: 20px;
-		padding-left: 10px;
-		border-left: 1px solid $color_1;
-	}
+    .content {
+        margin-bottom: 20px;
+        padding-left: 10px;
+        border-left: 1px solid $color_1;
+    }
 }
 
 .news:hover {
     h1 {
-	    border-bottom: 2px solid $color_1;
-	}
+        border-bottom: 2px solid $color_1;
+    }
 }
 
 /* Image */
 
 .images {
-	padding: 25px;
-	width: 100%;
-	min-height: 500px;
+    padding: 25px;
+    width: 100%;
+    min-height: 500px;
 
-	img {
-	    max-width: 100%;
-	    max-height: 500px;
-	}
+    img {
+        max-width: 100%;
+        max-height: 500px;
+    }
 }
 
 /* FOOTER */
@@ -232,8 +232,8 @@ footer {
     padding-right: 10px;
     width: $width_footer;
     text-align: right;
-	background: $color_1;
-	color: #FFFFFF;
+    background: $color_1;
+    color: #FFFFFF;
 }
 
 /* Autre class */
@@ -241,7 +241,7 @@ footer {
 nav.right, div.right {
     text-align: right;
     a {
-		float: right;
+        float: right;
     }
 }
 

@@ -15,7 +15,7 @@ require_once 'src\Routes.php';
 if(MerciKI\Config::$debug) {
     error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE | E_ALL);
 } else {
-	error_reporting(0);
+    error_reporting(0);
 }
 
 $application = new MerciKI\Application();

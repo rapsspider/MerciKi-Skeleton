@@ -14,7 +14,7 @@
             </figure>
             <figure class="login">
                 <h3>Authentification : POKENEWS</h3>
-                <form accept-charset="utf-8" method="POST" id="UsagerLoginForm" action="index.php?controller=Default&action=login">
+                <form accept-charset="utf-8" method="POST" id="UsagerLoginForm" action="/login?arg=true">
                     <div class="ui form segment">
                         <div class="field">
                             <label>Username</label>
@@ -119,8 +119,10 @@ var loading = {
     }
 }
 
-function Connexion() {
+function Connexion(form) {
 
+    this.$form = form;
+    
     this.loading = function() {
         $('#cube').addClass('down');
     }
@@ -130,14 +132,14 @@ function Connexion() {
     }
 
     this.connexion = function() {
-        this.username = $('form input[name=username]').val();
-        this.password = $('form input[name=password]').val();
+        this.username = this.$form.find('input[name=username]').val();
+        this.password = this.$form.find('input[name=password]').val();
         this.loading();
         loading.start();
 
         $.ajax({
-            'type' : 'POST',
-            'url'  : '/login',
+            'type' : this.$form.attr('method'),
+            'url'  : this.$form.attr('action'),
             'dataType' : 'json',
             'data' : {
                 'username' : this.username,
@@ -170,7 +172,7 @@ function Connexion() {
     }
 }
 
-var con = new Connexion();
+var con = new Connexion($('form'));
     
 $('.bouton a.back').on('click', function() {
     resetForm();

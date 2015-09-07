@@ -22,4 +22,6 @@ Config::$encoding = 'utf8';
 
 Config::$arg_separateur = '=';
 
+Config::$root = "/";
+
 ?>

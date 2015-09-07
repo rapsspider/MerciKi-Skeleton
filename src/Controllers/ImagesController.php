@@ -97,8 +97,8 @@ class ImagesController extends AppController {
             throw new PageNonExistante('La page demandée n\'existe pas');
         }
 
-        if($this->request->data && isset($this->request->data['image'])) {
-            $image->set($this->request->data['image']);
+        if(isset($_POST) && isset($_POST['image'])) {
+            $image->set($_POST['image']);
             $modifie = $this->Images->edit($image);
 
             if($modifie) {

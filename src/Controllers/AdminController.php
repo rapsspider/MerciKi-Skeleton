@@ -32,9 +32,7 @@ class AdminController extends AppController {
      */
     public function index() {
         $texte = new View();
-        $texte->file = 'resources/Data/admin.ctp';
-
-        $this->addVar('texte', $texte->content());
+        $this->addVar('texte', $texte->content('resources/Data/admin.ctp'));
         
         return $this->view('Admin/index');
     }
@@ -53,11 +51,10 @@ class AdminController extends AppController {
      */
     public function loginResult() {
         $this->layout = 'ajax';
-        $this->response->type('json');
-
+        
         $isConnected = $this->auth->connexion(
-            $this->request->data['username'],
-            $this->request->data['password']
+            $_POST['username'],
+            $_POST['password']
         );
         
         return ['result' => $isConnected];

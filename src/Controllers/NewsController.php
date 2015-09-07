@@ -67,8 +67,8 @@ class NewsController extends AppController {
     public function admin_save() {
         $new = $this->News->newEntity();
 
-        if($this->request->data && isset($this->request->data['new'])) {
-            $new->set($this->request->data['new']);
+        if($_POST && isset($_POST['new'])) {
+            $new->set($_POST['new']);
             $ajoute = $this->News->create($new);
 
             if($ajoute) {
@@ -106,8 +106,8 @@ class NewsController extends AppController {
             throw new PageNotExist('La page demandée n\'existe pas');
         }
 
-        if($this->request->data && isset($this->request->data['new'])) {
-            $new->set($this->request->data['new']);
+        if($_POST && isset($_POST['new'])) {
+            $new->set($_POST['new']);
             $modifie = $this->News->edit($new);
 
             if($modifie) {
